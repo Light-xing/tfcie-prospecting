@@ -7,8 +7,6 @@
 矿种物性由数据文件定义，靶场由 JSON 声明式生成。配套的 LLM 陪伴体模组见
 [Light-xing/minecraft-numen](https://github.com/Light-xing/minecraft-numen)（1.20.1 fork）。
 
-> 本仓库只提交代码与本 README；项目设计、测试报告等文档不随库发布。
-
 ## 环境要求
 
 | 项 | 版本 |
@@ -16,8 +14,8 @@
 | Minecraft | 1.20.1 |
 | Forge | 47.x（构建基线 47.4.6） |
 | Java | 17（编译与运行） |
-| TerraFirmaCraft | `[3.1.0-beta,)`（实测 3.2.26） |
-| Immersive Engineering | `[1.20.1-10.0.0-169,)`（实测 10.2.0-183） |
+| TerraFirmaCraft | `[3.1.0-beta,)` |
+| Immersive Engineering | `[1.20.1-10.0.0-169,)` |
 | Numen（可选，软依赖） | 0.1.5 的 1.20.1 定制版；用于 Lua 原语、状态注入与开局补给 |
 
 ## 功能
@@ -29,7 +27,7 @@
 | 仪器 | 水平/垂向量程 | 耐久 | 机制要点 |
 |---|---|---|---|
 | 踏勘镐 `recon_pick` | 8 / 24 格 | 256（每次 2） | 必须对准 4.5 格内**裸露岩面**敲击；约 20% 假阴性；同区块累计 3 次一致有效采样收敛出疑似矿名，6 次饱和 |
-| 密度探锤 `density_plumb` | 8 / **96 格** | 192（每次 1） | 报高/低密度符号与粗深度带，是全场最深的探测手段；每用 1 次漂移 +2 格，满 3 次强制回基点砝码校准 |
+| 密度探锤 `density_plumb` | 8 / 96 格 | 192（每次 1） | 报高/低密度符号与粗深度带，是全场最深的探测手段；每用 1 次漂移 +2 格，满 3 次强制回基点砝码校准 |
 | 感应探棒 `induction_probe` | 24 / 64 格 | 免耐久 | 报导电强度、八向粗方位与距离/深度档；孔雀石不导电（盲区），石墨低密度但高导电（典型伪异常），地下水造成干扰 |
 | 磁力探针 `magnetic_needle` | 32 / 48 格 | 免耐久 | 只响应磁铁矿（强磁）与赤铁矿（弱磁）；报 16 向角度；两点相距 ≥6 格可解算矿脉走向 |
 | 回声探针 `echo_probe` | 干岩贴面 8 / 浸水 16 | 有磨损 | 必须紧贴石面或浸水耦合；报相邻空腔、水/岩浆与洞壁暴露矿面数，不穿透完整岩体 |
@@ -62,22 +60,14 @@
 /prospect kit [<player>]             # 发放整套基础装备
 ```
 
-### 管理员靶场（OP 权限 2 才可用）
+### 管理员靶场
 
 ```
 /prospect arena list                         # 首次自动释放内置 map1~4.json（已存在不覆盖）
 /prospect arena build <name> [<x> <z>]       # 声明式刷图；缺省以执行者脚下区块西北角为原点
 /prospect arena starter [<player>|<name>] [<name>]   # 清背包发装备；已建图则传送到推荐起点
 ```
-
-- 配置热改：`<游戏目录>/config/tfcie_prospecting/arenas/<name>.json`，改完直接重跑 `build` 即幂等重刷；
-- 四张内置图：`map1` 母岩推断与浅层盲矿（128×128）、`map2` 多源消歧与磁法走向（128×128）、
-  `map3` 深部盲矿与竖井开拓（128×128）、`map4` 多岩区综合考场（256×256）；
-- 构建流程：区块强制加载 → 纯虚空列补地层 / 保留原地形 → 按分区换母岩并清洗全部野生矿与矿脉提示物 →
-  注入椭球矿脉、地下水囊、地表金属干扰（深度按 `depth_below_surface` 相对该列真实地表） →
-  外框整高 `minecraft:barrier` 封边 + 基岩封底 → 导出真值
-  `tfcie_prospecting/arenas_output/<name>_ground_truth.json`；
-- 所有批量写方块使用 `Block.UPDATE_CLIENTS`（flag 2），不触发流体/方块物理连锁，也不触发玩家放置事件。
+- 未完成。
 
 ## 构建
 
@@ -100,8 +90,7 @@ cd tfcie-prospecting
 ./gradlew build -PnumenRoot=/path/to/minecraft-numen
 ```
 
-- `-PnumenRoot` 指向 Numen 源码根（也可用环境变量 `NUMEN_ROOT`）；缺省值只是作者本机路径，
-  干净环境请务必显式指定。
+- `-PnumenRoot` 指向 Numen 源码根（也可用环境变量 `NUMEN_ROOT`）；
 - 离线环境在命令后加 `--no-daemon --offline`（需预先缓存 Gradle/Maven 依赖）。
 - 产物：`build/libs/tfcie_prospecting-1.20.1-0.1.0.jar`，连同 TFC、IE（以及可选的 Numen）一并放入 `mods/`。
 
@@ -112,13 +101,6 @@ cd tfcie-prospecting
 ./gradlew runClient   # 开发客户端（首次需联网下载依赖）
 ./gradlew runServer   # 开发服务端
 ```
-
-## 已知边界
-
-- 「平面探查图」与「鸟瞰遥感」是早期的人类客户端资产，已冻结，不参与面向 API 智能体的评测；
-- 仪器物性是游戏化的简化模型（非真实地球物理反演），不对外宣称矿山真值；
-- 在部分 TFC 版本上，「关闭地表小矿石指示块」的 Mixin 可能未生效并在日志留下 ERROR；
-  受控靶场通过清洗地表矿粒/提示物绕过该问题，野生新图仍可能看到地表提示块。
 
 ## 许可
 
