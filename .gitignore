@@ -1,0 +1,22 @@
+.gradle/
+build/
+run/
+out/
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+bin/
+.classpath
+.project
+.settings/
+
+# 文档一律不入库（本仓只保留根 README）
+*.md
+!/README.md
+
+# 本地构建/运行残留
+logs/
+*.jar.bak*
+run/

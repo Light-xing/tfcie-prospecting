@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tfcie_prospecting:item/remote_sensing_scanner"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tfcie_prospecting:block/base_weight"
+    }
+  }
+}

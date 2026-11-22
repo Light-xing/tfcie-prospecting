@@ -1,0 +1,52 @@
+{
+  "replace": false,
+  "_comment": "TFC 矿种物性表：矿族分类 + 物探响应（导电 / 磁性 / 密度）。数据包可在 data/<ns>/prospecting/ore_properties/ 下新增同名键覆盖单个矿种，或用 \"replace\": true 整表替换。",
+  "ores": {
+    "native_copper": { "group": "metallic", "zh_cn": "自然铜", "conductive": true, "magnetism": "none", "density": "high" },
+    "native_gold": { "group": "metallic", "zh_cn": "自然金", "conductive": true, "magnetism": "none", "density": "high" },
+    "native_silver": { "group": "metallic", "zh_cn": "自然银", "conductive": true, "magnetism": "none", "density": "high" },
+    "cassiterite": { "group": "metallic", "zh_cn": "锡石", "conductive": true, "magnetism": "none", "density": "high" },
+    "bismuthinite": { "group": "metallic", "zh_cn": "辉铋矿", "conductive": true, "magnetism": "none", "density": "high" },
+    "tetrahedrite": { "group": "metallic", "zh_cn": "黝铜矿", "conductive": true, "magnetism": "none", "density": "high" },
+    "sphalerite": { "group": "metallic", "zh_cn": "闪锌矿", "conductive": true, "magnetism": "none", "density": "high" },
+    "pyrite": {
+      "group": "metallic", "zh_cn": "黄铁矿", "conductive": true, "magnetism": "none", "density": "high",
+      "confused_with": "native_gold",
+      "_note": "愚人金：以 fake_native_gold 矿脉生成，踏勘镐的相似矿物混淆假阳性来源"
+    },
+
+    "magnetite": { "group": "metallic", "zh_cn": "磁铁矿", "conductive": true, "magnetism": "strong", "density": "high" },
+    "hematite": { "group": "metallic", "zh_cn": "赤铁矿", "conductive": true, "magnetism": "weak", "density": "high" },
+    "limonite": { "group": "metallic", "zh_cn": "褐铁矿", "conductive": true, "magnetism": "none", "density": "high" },
+
+    "malachite": {
+      "group": "metallic", "zh_cn": "孔雀石", "conductive": false, "magnetism": "none", "density": "high",
+      "_note": "碳酸铜：不导电、无磁性，但比重大（3.6~4.05 g/cm³，明显高于白垩/大理岩围岩）。三项全盲会让物探完全找不到它（测试报告四），密度改成高，给它留一个密度探锤/重力法能读到的物性签名。"
+    },
+    "garnierite": {
+      "group": "metallic", "zh_cn": "硅镁镍矿", "conductive": false, "magnetism": "none", "density": "normal",
+      "_note": "风化硅酸盐：非导电 / 非磁性 / 非常密度 → 物探盲区，仅钻探可达"
+    },
+
+    "graphite": { "group": "non_metallic", "zh_cn": "石墨", "conductive": true, "magnetism": "none", "density": "low" },
+    "bituminous_coal": { "group": "non_metallic", "zh_cn": "烟煤", "conductive": false, "magnetism": "none", "density": "low" },
+    "lignite": { "group": "non_metallic", "zh_cn": "褐煤", "conductive": false, "magnetism": "none", "density": "low" },
+    "gypsum": { "group": "non_metallic", "zh_cn": "石膏", "conductive": false, "magnetism": "none", "density": "low" },
+    "sulfur": { "group": "non_metallic", "zh_cn": "硫磺", "conductive": false, "magnetism": "none", "density": "low" },
+    "cinnabar": { "group": "non_metallic", "zh_cn": "朱砂", "conductive": false, "magnetism": "none", "density": "low" },
+    "cryolite": { "group": "non_metallic", "zh_cn": "冰晶石", "conductive": false, "magnetism": "none", "density": "low" },
+    "saltpeter": { "group": "non_metallic", "zh_cn": "硝石", "conductive": false, "magnetism": "none", "density": "low" },
+    "sylvite": { "group": "non_metallic", "zh_cn": "钾盐", "conductive": false, "magnetism": "none", "density": "low" },
+    "borax": { "group": "non_metallic", "zh_cn": "硼砂", "conductive": false, "magnetism": "none", "density": "low" },
+    "halite": { "group": "non_metallic", "zh_cn": "岩盐", "conductive": false, "magnetism": "none", "density": "low" },
+
+    "diamond": { "group": "gem", "zh_cn": "钻石", "conductive": false, "magnetism": "none", "density": "normal" },
+    "emerald": { "group": "gem", "zh_cn": "祖母绿", "conductive": false, "magnetism": "none", "density": "normal" },
+    "lapis_lazuli": { "group": "gem", "zh_cn": "青金石", "conductive": false, "magnetism": "none", "density": "normal" },
+    "amethyst": { "group": "gem", "zh_cn": "紫水晶", "conductive": false, "magnetism": "none", "density": "normal" },
+    "opal": { "group": "gem", "zh_cn": "蛋白石", "conductive": false, "magnetism": "none", "density": "normal" },
+    "ruby": { "group": "gem", "zh_cn": "红宝石", "conductive": false, "magnetism": "none", "density": "normal" },
+    "sapphire": { "group": "gem", "zh_cn": "蓝宝石", "conductive": false, "magnetism": "none", "density": "normal" },
+    "topaz": { "group": "gem", "zh_cn": "黄玉", "conductive": false, "magnetism": "none", "density": "normal" }
+  }
+}

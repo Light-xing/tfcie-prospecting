@@ -1,0 +1,48 @@
+{
+  "name": "map1",
+  "size_x": 128,
+  "size_z": 128,
+  "base_surface_y": 72,
+  "fill_underground_caves": true,
+  "spawn": { "dx": 64, "dz": 108 },
+  "rock_zones": [
+    { "x_min": 0, "x_max": 63, "z_min": 0, "z_max": 127, "rock": "shale" },
+    { "x_min": 64, "x_max": 127, "z_min": 0, "z_max": 127, "rock": "marble" }
+  ],
+  "outcrops": [
+    { "dx": 18, "dz": 20, "radius": 4, "rock": "shale" },
+    { "dx": 20, "dz": 84, "radius": 4, "rock": "shale" },
+    { "dx": 50, "dz": 64, "radius": 4, "rock": "shale" },
+    { "dx": 86, "dz": 20, "radius": 4, "rock": "marble" },
+    { "dx": 112, "dz": 64, "radius": 4, "rock": "marble" },
+    { "dx": 76, "dz": 92, "radius": 4, "rock": "marble" }
+  ],
+  "features": [
+    {
+      "type": "vein",
+      "id": "map1-target-malachite",
+      "ore": "malachite",
+      "is_target": true,
+      "dx": 98,
+      "dz": 34,
+      "depth_below_surface": 18,
+      "rx": 8,
+      "ry": 4,
+      "rz": 8,
+      "strike_deg": 0
+    },
+    {
+      "type": "vein",
+      "id": "map1-distractor-lignite",
+      "ore": "lignite",
+      "is_target": false,
+      "dx": 26,
+      "dz": 40,
+      "depth_below_surface": 16,
+      "rx": 9,
+      "ry": 3,
+      "rz": 9,
+      "strike_deg": 0
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "tfcie_prospecting:item/advanced_induction_probe"
+  }
+}

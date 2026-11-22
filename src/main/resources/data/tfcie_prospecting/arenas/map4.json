@@ -1,0 +1,111 @@
+{
+  "name": "map4",
+  "size_x": 256,
+  "size_z": 256,
+  "base_surface_y": 72,
+  "fill_underground_caves": true,
+  "spawn": { "dx": 128, "dz": 128 },
+  "rock_zones": [
+    {
+      "x_min": 0,
+      "x_max": 127,
+      "z_min": 0,
+      "z_max": 127,
+      "rock": "claystone",
+      "bottom_rock": "slate",
+      "boundary_depth": 32
+    },
+    { "x_min": 128, "x_max": 255, "z_min": 0, "z_max": 127, "rock": "marble" },
+    { "x_min": 0, "x_max": 255, "z_min": 128, "z_max": 255, "rock": "granite" }
+  ],
+  "outcrops": [
+    { "dx": 20, "dz": 20, "radius": 4, "rock": "claystone" },
+    { "dx": 100, "dz": 40, "radius": 4, "rock": "claystone" },
+    { "dx": 20, "dz": 100, "radius": 4, "rock": "claystone" },
+    { "dx": 140, "dz": 20, "radius": 4, "rock": "marble" },
+    { "dx": 160, "dz": 60, "radius": 4, "rock": "marble" },
+    { "dx": 240, "dz": 110, "radius": 4, "rock": "marble" },
+    { "dx": 40, "dz": 150, "radius": 4, "rock": "granite" },
+    { "dx": 130, "dz": 240, "radius": 4, "rock": "granite" },
+    { "dx": 220, "dz": 160, "radius": 4, "rock": "granite" }
+  ],
+  "features": [
+    {
+      "type": "vein",
+      "id": "map4-target-magnetite",
+      "ore": "magnetite",
+      "is_target": true,
+      "dx": 44,
+      "dz": 30,
+      "depth_below_surface": 28,
+      "rx": 10,
+      "ry": 4,
+      "rz": 6,
+      "strike_deg": 135
+    },
+    {
+      "type": "vein",
+      "id": "map4-target-malachite",
+      "ore": "malachite",
+      "is_target": true,
+      "dx": 204,
+      "dz": 30,
+      "depth_below_surface": 18,
+      "rx": 8,
+      "ry": 4,
+      "rz": 8,
+      "strike_deg": 0
+    },
+    {
+      "type": "vein",
+      "id": "map4-target-bismuthinite",
+      "ore": "bismuthinite",
+      "is_target": true,
+      "dx": 186,
+      "dz": 206,
+      "depth_below_surface": 70,
+      "rx": 9,
+      "ry": 5,
+      "rz": 9,
+      "strike_deg": 0
+    },
+    {
+      "type": "vein",
+      "id": "map4-distractor-lignite",
+      "ore": "lignite",
+      "is_target": false,
+      "dx": 48,
+      "dz": 116,
+      "depth_below_surface": 16,
+      "rx": 9,
+      "ry": 3,
+      "rz": 9,
+      "strike_deg": 0
+    },
+    {
+      "type": "vein",
+      "id": "map4-distractor-graphite",
+      "ore": "graphite",
+      "is_target": false,
+      "dx": 196,
+      "dz": 118,
+      "depth_below_surface": 30,
+      "rx": 8,
+      "ry": 4,
+      "rz": 8,
+      "strike_deg": 0
+    },
+    {
+      "type": "water_pocket",
+      "id": "map4-distractor-water-a",
+      "is_target": false,
+      "dx": 52,
+      "dz": 204,
+      "depth_below_surface": 26,
+      "rx": 7,
+      "ry": 4,
+      "rz": 7,
+      "salt": false
+    }
+  ]
+}

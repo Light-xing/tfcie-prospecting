@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "MIT"
+
+[[mods]]
+modId = "tfcie_prospecting"
+version = "${file.jarVersion}"
+displayName = "TFC + IE Prospecting"
+authors = "VoyagerMCP"
+description = "勘探地质与矿物的全套设备：踏勘镐 + 四种物探工具 + 钻探取样（TFC × 沉浸工程 附属模组）。"
+
+[[dependencies.tfcie_prospecting]]
+modId = "forge"
+mandatory = true
+versionRange = "[47.1.81,47.2.0),[47.2.6,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.tfcie_prospecting]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20,1.21)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.tfcie_prospecting]]
+modId = "tfc"
+mandatory = true
+versionRange = "[3.1.0-beta,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.tfcie_prospecting]]
+modId = "immersiveengineering"
+mandatory = true
+versionRange = "[1.20.1-10.0.0-169,)"
+ordering = "AFTER"
+side = "BOTH"

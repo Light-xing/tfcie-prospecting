@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "tfcie_prospecting:block/base_weight_side",
+    "down": "tfcie_prospecting:block/base_weight_side",
+    "up": "tfcie_prospecting:block/base_weight_top",
+    "north": "tfcie_prospecting:block/base_weight_side",
+    "south": "tfcie_prospecting:block/base_weight_side",
+    "east": "tfcie_prospecting:block/base_weight_side",
+    "west": "tfcie_prospecting:block/base_weight_side"
+  }
+}
